@@ -19,13 +19,15 @@ app.use("/customer/auth/*", function auth(req,res,next){
                 next();
             }
             else{
-                return res.status(403).json({message: "Error", error: err})
+                return res.status(401).json({message: "Error of authenticated"})
             }
-         });
-     } else {
-         return res.status(403).json({message: "Error"})
-     }
-});
+        });
+    } else {
+        return res.status(401).json({message: "Error of authenticated"})
+    }
+    });
+ 
+
  
 const PORT =5000;
 
